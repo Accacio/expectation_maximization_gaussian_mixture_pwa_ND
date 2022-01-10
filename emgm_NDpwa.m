@@ -3,7 +3,6 @@ clear
 %% Generate data
 
 PI=pi;
-emMaxIter=200;
 
 colorsgt={[ .5 0.447058823529412 0.741176470588235 ],...
         [0.850980392156863   0.825490196078431   0.098039215686275],...
@@ -90,6 +89,7 @@ modes=size(theta,3);
 
 pi_hat=repmat(1/modes,1,modes);
 maxErr=1e-4;
+emMaxIter=200;
 
 %% EM Algo
 [C,d,responsabilities,pi,Sigma] = emgm_estimate(x,y,modes,emMaxIter,maxErr,m,n,colors);
