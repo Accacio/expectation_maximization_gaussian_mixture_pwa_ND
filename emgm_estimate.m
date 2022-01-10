@@ -4,8 +4,14 @@ function [C,d,responsabilities,pi,Sigma] = emgm_estimate(x,y,modes,emMaxIter,max
     pi=repmat(1/modes,1,modes);
     OldclusterSize=zeros(1,modes);
 
-    % C=m;
-    % d=n;
+    % TODO(accacio): find way to initialize it better (use gradient)
+    % Something like:
+    % indexpts1=randi([1 N-1],1,3);
+    % C=(y(:,indexpts1+1)-y(:,indexpts1))./(x(:,indexpts1+1)-x(:,indexpts1));
+    % d=y(:,indexpts1)-C.*x(:,indexpts1);
+    % C=C+rand(1,M);
+    % d=d+rand(1,M);
+
     % C=5*rand(size(x,1),1,modes);
     % d=5*rand(1,1,modes);
     C=m+2*rand(size(m));
